@@ -1,0 +1,111 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+	"context_servers": {},
+	"edit_predictions": {
+		"disabled_globs": []
+	},
+	"agent": {
+		"single_file_review": false,
+		"always_allow_tool_actions": false,
+		"default_profile": "write",
+		"inline_assistant_model": {
+			"provider": "anthropic",
+			"model": "claude-sonnet-4-5-thinking-latest"
+		},
+		"default_model": {
+			"provider": "anthropic",
+			"model": "claude-sonnet-4-5-thinking-latest"
+		}
+	},
+	"theme": "Ayu Dark",
+	"ui_font_size": 16,
+	"buffer_font_size": 16,
+	"hard_tabs": true,
+	"tab_size": 4,
+	"vim_mode": true,
+	"relative_line_numbers": true,
+	"soft_wrap": "editor_width",
+	"features": {
+		"edit_prediction_provider": "copilot"
+		// "edit_prediction_provider": "supermaven"
+	},
+	"file_types": {
+		"Rust": ["rhai"],
+		"Json": ["webmanifest"]
+	},
+	"buffer_font_features": {
+		"calt": false
+	},
+	"lsp": {
+		"svelte-language-server": {
+			"initialization_options": {
+				"dontFilterIncompleteCompletions": true
+			}
+		}
+	},
+	"prettier": {
+		"tabWidth": 4,
+		"useTabs": true
+	},
+	"languages": {
+		"GraphQL": {
+			"formatter": "prettier",
+			"prettier": {
+				"allowed": true
+			}
+		},
+		"SCSS": {
+			"formatter": "prettier",
+			"prettier": {
+				"allowed": true
+			}
+		},
+		"TypeScript": {
+			"formatter": "prettier",
+			"prettier": {
+				"allowed": true
+			}
+		},
+		"JavaScript": {
+			"formatter": "prettier",
+			"prettier": {
+				"allowed": true
+			}
+		},
+		"HTML": {
+			"formatter": "prettier",
+			"prettier": {
+				"allowed": true
+			}
+		},
+		"PHP": {
+			"formatter": "language_server",
+			"language_servers": ["intelephense", "..."]
+		},
+		"Twig": {
+			"formatter": {
+				"external": {
+					"command": "djlint",
+					"arguments": [
+						"-",
+						"--reformat",
+						"--indent",
+						"2",
+						"--max-blank-lines",
+						"1",
+						"--profile",
+						"nonjucks",
+						"--quiet"
+					]
+				}
+			}
+		}
+	}
+}
