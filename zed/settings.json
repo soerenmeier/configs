@@ -4,17 +4,17 @@
 // documentation: https://zed.dev/docs/configuring-zed
 //
 // To see all of Zed's default settings without changing your
-// custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p)
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
 {
-	"context_servers": {},
-	"edit_predictions": {
-		"disabled_globs": []
+	"features": {
+		"edit_prediction_provider": "copilot"
 	},
+	// lambdalabs api secret_zed-home_9650b8a4272144259c36ed757fa37ad1.zYuTJGyhTxE6FguzzYgHBxbzcqvKxIqM
+	// curl -u <api_key>: https://cloud.lambda.ai/api/v1/instances
 	"agent": {
-		"single_file_review": false,
-		"always_allow_tool_actions": false,
 		"default_profile": "write",
+		"always_allow_tool_actions": false,
 		"inline_assistant_model": {
 			"provider": "anthropic",
 			"model": "claude-sonnet-4-5-thinking-latest"
@@ -27,47 +27,51 @@
 	"theme": "Ayu Dark",
 	"ui_font_size": 16,
 	"buffer_font_size": 16,
-	"hard_tabs": true,
 	"tab_size": 4,
+	"hard_tabs": true,
 	"vim_mode": true,
 	"relative_line_numbers": true,
 	"soft_wrap": "editor_width",
-	"features": {
-		"edit_prediction_provider": "copilot"
-		// "edit_prediction_provider": "supermaven"
-	},
-	"file_types": {
-		"Rust": ["rhai"],
-		"Json": ["webmanifest"]
-	},
-	"buffer_font_features": {
-		"calt": false
+	"project_panel": {
+		// "auto_reveal_entries": false
 	},
 	"lsp": {
+		"rust-analyzer": {
+			"initialization_options": {
+				"cargo": {
+					"features": "all",
+					"buildScripts": true
+				}
+			}
+		},
 		"svelte-language-server": {
 			"initialization_options": {
 				"dontFilterIncompleteCompletions": true
 			}
 		}
 	},
-	"prettier": {
-		"tabWidth": 4,
-		"useTabs": true
-	},
 	"languages": {
+		"YAML": {
+			"tab_size": 2,
+			"hard_tabs": false
+		},
+		"TypeScript": {
+			"formatter": "prettier",
+			"prettier": {
+				"allowed": true
+			}
+		},
 		"GraphQL": {
 			"formatter": "prettier",
 			"prettier": {
 				"allowed": true
 			}
 		},
-		"SCSS": {
-			"formatter": "prettier",
-			"prettier": {
-				"allowed": true
-			}
+		"PHP": {
+			"formatter": "language_server",
+			"language_servers": ["intelephense", "..."]
 		},
-		"TypeScript": {
+		"HTML": {
 			"formatter": "prettier",
 			"prettier": {
 				"allowed": true
@@ -79,15 +83,11 @@
 				"allowed": true
 			}
 		},
-		"HTML": {
+		"SCSS": {
 			"formatter": "prettier",
 			"prettier": {
 				"allowed": true
 			}
-		},
-		"PHP": {
-			"formatter": "language_server",
-			"language_servers": ["intelephense", "..."]
 		},
 		"Twig": {
 			"formatter": {
@@ -107,5 +107,15 @@
 				}
 			}
 		}
+	},
+	"prettier": {
+		"tab_width": 4,
+		"useTabs": true
+	},
+	"inline_code_actions": false,
+	"file_types": {
+		"Diff": ["patch"],
+		"Rust": ["rhai"],
+		"Json": ["webmanifest"]
 	}
 }
