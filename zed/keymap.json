@@ -7,18 +7,6 @@
 // from the command palette.
 [
 	{
-		"context": "Workspace",
-		"bindings": {
-			// "shift shift": "file_finder::Toggle"
-		}
-	},
-	{
-		"context": "Editor",
-		"bindings": {
-			// "j k": ["workspace::SendKeystrokes", "escape"]
-		}
-	},
-	{
 		"context": "Editor && mode == full && edit_prediction",
 		"bindings": {
 			"alt-l": "editor::AcceptPartialEditPrediction"
@@ -29,6 +17,12 @@
 		"bindings": {
 			"alt-k": "editor::MoveLineUp",
 			"alt-j": "editor::MoveLineDown"
+		}
+	},
+	{
+		"context": "Editor && vim_mode == normal",
+		"bindings": {
+			"ctrl-w": "pane::CloseActiveItem"
 		}
 	}
 ]
